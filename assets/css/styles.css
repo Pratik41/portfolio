@@ -735,3 +735,6 @@ details.decisions summary .hint { font-family: var(--mono); font-size: 11px; col
 .form-status.err { color: var(--red); border-color: color-mix(in srgb, var(--red) 35%, transparent); background: color-mix(in srgb, var(--red) 8%, transparent); }
 .form-status a { text-decoration: underline; color: inherit; font-weight: 600; }
 .btn[disabled] { opacity: .7; cursor: progress; transform: none; }
+
+/* Keywords pop when skimming: bold terms use the primary text color everywhere */
+.cap p strong, .psr p strong, .proj .one strong, .principle p strong, .job li strong, .lead strong { color: var(--text); font-weight: 600; }
