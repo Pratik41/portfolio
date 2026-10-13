@@ -372,8 +372,15 @@
         clearTimeout(timer);
         var success = res.ok && (res.d.success === true || res.d.success === 'true');
         if (!success) throw new Error((res.d && res.d.message) || 'send failed');
+        var replyTo = form.email.value.trim();
         form.reset();
-        setStatus('ok', '✓ Thanks, ' + esc(name.split(' ')[0]) + '! Your message has been sent. I\'ll get back to you soon.');
+        $('#successText').innerHTML = 'Thanks, ' + esc(name.split(' ')[0]) + '! Your message is in my inbox. ' +
+          'I\'ll reply to <strong>' + esc(replyTo) + '</strong> within 24 hours.';
+        form.classList.add('sent');
+        var ok = $('#formSuccess');
+        ok.hidden = false;
+        ok.focus({ preventScroll: true });
+        ok.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         toast('Message sent ✓');
       })
       .catch(function () {
@@ -386,6 +393,13 @@
         sendBtn.disabled = false;
         sendLabel.textContent = 'Send message';
       });
+  });
+
+  $('#sendAnother').addEventListener('click', function () {
+    form.classList.remove('sent');
+    $('#formSuccess').hidden = true;
+    statusEl.hidden = true;
+    form.name.focus();
   });
 
   /* ---------- Command palette (Ctrl/⌘ + K) ---------- */

@@ -736,3 +736,19 @@ details.decisions summary .hint { font-family: var(--mono); font-size: 11px; col
 .form-status a { text-decoration: underline; color: inherit; font-weight: 600; }
 .btn[disabled] { opacity: .7; cursor: progress; transform: none; }
 
+
+/* Contact form: full success state replaces the fields after sending */
+#contactForm.sent > :not(.form-success) { display: none !important; }
+.form-success { text-align: center; padding: 28px 8px 12px; outline: none; }
+.form-success[hidden] { display: none; }
+.form-success .check { width: 72px; height: 72px; margin: 0 auto 18px; }
+.form-success .check circle { fill: color-mix(in srgb, var(--green) 12%, transparent); stroke: var(--green); stroke-width: 2;
+  stroke-dasharray: 152; stroke-dashoffset: 152; animation: drawCheck .7s var(--ease) forwards; }
+.form-success .check path { fill: none; stroke: var(--green); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 36; stroke-dashoffset: 36; animation: drawCheck .45s var(--ease) .55s forwards; }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+.form-success h3 { font-size: clamp(22px, 3vw, 26px); letter-spacing: -.02em; margin-bottom: 10px; animation: pop .4s var(--ease) .35s both; }
+.form-success p { color: var(--muted); max-width: 380px; margin: 0 auto 22px; line-height: 1.6; animation: pop .4s var(--ease) .45s both; }
+.form-success p strong { color: var(--text); font-weight: 600; overflow-wrap: anywhere; }
+.form-success .btn { animation: pop .4s var(--ease) .55s both; }
+@media (prefers-reduced-motion: reduce) { .form-success .check circle, .form-success .check path { stroke-dashoffset: 0; } }

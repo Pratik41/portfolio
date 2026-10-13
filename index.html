@@ -614,6 +614,12 @@
         <button class="btn btn-primary" type="submit" id="sendBtn" style="width:100%"><span class="send-label">Send message</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
         <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite" tabindex="-1" hidden>
+          <svg class="check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-15"/></svg>
+          <h3>Message sent!</h3>
+          <p id="successText">Thanks for reaching out. Your message is in my inbox and I'll reply within 24 hours.</p>
+          <button type="button" class="btn" id="sendAnother">Send another message</button>
+        </div>
         <p class="form-note">Goes straight to my inbox. I usually reply within 24 hours.</p>
       </form>
     </div>
