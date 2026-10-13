@@ -396,7 +396,7 @@
     { i: '🚀', t: 'Projects & case studies', h: '03', run: function () { go('#projects'); } },
     { i: '🧪', t: 'Tech stack', h: '04', run: function () { go('#stack'); } },
     { i: '🧭', t: 'How I work', h: '05', run: function () { go('#approach'); } },
-    { i: '🏆', t: 'Impact & recognition', h: '06', run: function () { go('#recognition'); } },
+    { i: '🏆', t: 'Awards & credentials', h: '06', run: function () { go('#recognition'); } },
     { i: '✉️', t: 'Contact', h: '07', run: function () { go('#contact'); } },
     { i: '📋', t: 'Copy email address', h: 'copy', run: function () { copy(EMAIL); } },
     { i: '📄', t: 'Download resume (PDF)', h: 'pdf', run: function () { window.location.href = RESUME; } },
