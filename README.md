@@ -1,6 +1,6 @@
 # Pratik Sonkusale — Portfolio
 
-**Live:** https://pratik-sonkusale.vercel.app
+**Live:** https://pratik-sonkusale.netlify.app
 
 Personal portfolio of **Pratik Sonkusale**, Senior Backend Engineer (Java · Spring Boot · Microservices · Kafka · AI integration).
 
@@ -16,15 +16,15 @@ Personal portfolio of **Pratik Sonkusale**, Senior Backend Engineer (Java · Spr
 - Command palette (`Ctrl/⌘ + K`) for keyboard navigation.
 - Accessibility: skip link, landmarks, ARIA labels, visible focus rings, `prefers-reduced-motion` support.
 - SEO: meta description, canonical URL, Open Graph and Twitter cards, JSON-LD `Person` schema, `sitemap.xml`, `robots.txt`.
-- Security headers via `vercel.json`: strict CSP, HSTS, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`.
+- Security headers via `netlify.toml`: strict CSP, HSTS, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`.
 
 ## Structure
 
 ```
 .
 ├── index.html                  # single-page portfolio
-├── 404.html                    # custom 404 (served automatically by Vercel)
-├── vercel.json                 # security headers, caching, clean URLs
+├── 404.html                    # custom 404 (served automatically by Netlify)
+├── netlify.toml                # security headers, caching
 ├── assets/
 │   ├── css/styles.css
 │   ├── js/main.js
@@ -43,19 +43,19 @@ Any static file server works, for example:
 npx serve .
 ```
 
-## Deploy to Vercel
+## Deploy to Netlify (free)
 
-1. Push this folder to a GitHub repository (for example `portfolio`).
-2. Go to [vercel.com/new](https://vercel.com/new), sign in with GitHub, and **Import** the repository.
-3. In the import screen:
-   - **Project Name:** `pratik-sonkusale` (this sets the URL `pratik-sonkusale.vercel.app`)
-   - **Framework Preset:** `Other`
-   - **Build Command:** leave empty
-   - **Output Directory:** leave empty (the repository root is served)
-4. Click **Deploy**. Every later `git push` to `main` redeploys automatically.
+1. Go to [app.netlify.com/start](https://app.netlify.com/start), sign in with GitHub, and pick the `portfolio` repository.
+2. On the configure screen:
+   - **Project name:** `pratik-sonkusale` (this sets the URL `pratik-sonkusale.netlify.app`)
+   - **Branch to deploy:** `main`
+   - **Build command:** leave empty
+   - **Publish directory:** `.` (already set by `netlify.toml`)
+3. Click **Deploy**. Every later `git push` to `main` redeploys automatically.
 
-> If `pratik-sonkusale` is taken, Vercel assigns a different URL. In that case, replace
-> `pratik-sonkusale.vercel.app` in `index.html`, `sitemap.xml` and `robots.txt`.
+> If `pratik-sonkusale` is taken, Netlify assigns a different URL. You can rename the site under
+> **Project configuration → Change project name**, or replace `pratik-sonkusale.netlify.app`
+> in `index.html`, `sitemap.xml` and `robots.txt` with the URL you got.
 
 ### After the first deploy
 
@@ -68,6 +68,6 @@ npx serve .
 
 ## Maintenance note
 
-`vercel.json` allows the small inline theme script in `index.html` by its SHA-256 hash (CSP).
-If you edit that `<script>` block, recompute the hash and update `script-src` in `vercel.json`,
+`netlify.toml` allows the small inline theme script in `index.html` by its SHA-256 hash (CSP).
+If you edit that `<script>` block, recompute the hash and update `script-src` in `netlify.toml`,
 otherwise the browser will block it. The script still runs without the hash if the CSP header is removed.

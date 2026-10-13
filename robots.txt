@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pratik-sonkusale.vercel.app/sitemap.xml
+Sitemap: https://pratik-sonkusale.netlify.app/sitemap.xml
