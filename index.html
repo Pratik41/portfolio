@@ -39,14 +39,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="preload" as="image" href="assets/img/profile.jpg">
-<link rel="stylesheet" href="assets/css/styles.css?v=811b040">
+<link rel="stylesheet" href="assets/css/styles.css?v=b1c789b9">
 
 <script>
   // Theme + JS flag before first paint (prevents flash)
   document.documentElement.classList.replace('no-js', 'js');
   try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
 </script>
-<script src="assets/js/main.js?v=811b040" defer></script>
+<script src="assets/js/main.js?v=b1c789b9" defer></script>
 
 <script type="application/ld+json">
 {
@@ -599,7 +599,7 @@
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <!-- Spam trap: hidden from people, bots fill it in and get dropped -->
-        <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div hidden aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
         <div class="form-row">
           <div class="field"><label for="fName">Name</label><input id="fName" name="name" required placeholder="Jane Doe" autocomplete="name"></div>
           <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" required placeholder="jane@company.com" autocomplete="email" inputmode="email"></div>

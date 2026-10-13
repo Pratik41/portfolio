@@ -339,8 +339,18 @@
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    if (form._honey.value) return; // bot
+    // Never fail silently: tell the visitor exactly what's missing
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      var missing = [];
+      if (!form.name.value.trim()) missing.push('your name');
+      if (!form.email.validity.valid) missing.push('a valid email');
+      if (!form.message.value.trim()) missing.push('a message');
+      setStatus('err', 'Please add ' + (missing.join(', ') || 'the required details') + ' before sending.');
+      return;
+    }
+    // Note: the hidden _honey field is intentionally NOT checked here. Browsers can autofill hidden
+    // inputs, which silently blocked real people. Spam filtering is left to FormSubmit's server side.
 
     var name = form.name.value.trim(), company = form.company.value.trim();
     var payload = {
@@ -383,10 +393,14 @@
         ok.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         toast('Message sent ✓');
       })
-      .catch(function () {
+      .catch(function (err) {
         clearTimeout(timer);
-        setStatus('err', 'Couldn\'t send right now. Opening your email app instead, or email me directly at ' +
-          '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a>.');
+        var reason = err && err.name === 'AbortError' ? 'The request timed out.' :
+          (err && err.message && err.message !== 'Failed to fetch' ? esc(err.message) : 'The network request was blocked or failed.');
+        setStatus('err', '<strong>Message not sent.</strong> ' + reason + ' Please email me directly at ' +
+          '<a href="mailto:' + EMAIL + '">' + EMAIL + '</a>. Your email app will open with the message filled in.');
+        statusEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        if (window.console) console.error('[contact form]', err);
         mailtoFallback(name, company);
       })
       .then(function () {
