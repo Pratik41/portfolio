@@ -1,0 +1,5 @@
+# Keep LF line endings so the inline-script hash in vercel.json (CSP) always matches
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pdf binary

@@ -1,0 +1,13 @@
+{
+  "name": "Pratik Sonkusale — Senior Backend Engineer",
+  "short_name": "Pratik S.",
+  "description": "Portfolio of Pratik Sonkusale, Senior Backend Engineer (Java, Spring Boot, Microservices, Kafka).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
